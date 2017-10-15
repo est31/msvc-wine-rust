@@ -3,6 +3,10 @@
 This script downloads and extracts the needed components of the Visual Studio 2017 build tools and the Windows SDK,
 so that Rust toolchains can target the platform.
 
+Note that these are the very latest build tools and the latest SDK. If you are okay with the older 2015 build tools,
+you should download the [enterprise WDK](https://developer.microsoft.com/en-us/windows/hardware/license-terms-enterprise-wdk-1703) instead,
+it contains all the needed files.
+
 Requirements:
 
 * GNU/Linux with GNU Bash installed. May also work on Mac or other BSD's, but I haven't tried.
