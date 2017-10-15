@@ -24,10 +24,10 @@ Then put the following into your `~/.cargo/config`:
 
 ```toml
 [target.x86_64-pc-windows-msvc]
-linker = "/path/to/msvc-wine-rust/linker.sh"
+linker = "/path/to/msvc-wine-rust/linker-scripts/linkx64.sh"
 
 [target.i686-pc-windows-msvc]
-linker = "/path/to/msvc-wine-rust/linker.sh"
+linker = "/path/to/msvc-wine-rust/linker-scripts/linkx32.sh"
 ```
 
 Then go to your favourite Rust project and compile it e.g. with:
