@@ -9,6 +9,7 @@ it contains all the needed files.
 
 Requirements:
 
+* 7z executable
 * GNU/Linux with GNU Bash installed. May also work on Mac or other BSD's, but I haven't tried.
 * Patched Wine 2.19 or later [that supports _memicmp_l](https://bugs.winehq.org/show_bug.cgi?id=43884). Compilation is explained below.
 * 32 bit Wine with .Net installed -- can be a completely separate, second, Wine installation/toolchain
