@@ -51,7 +51,8 @@ Now, if things went well, you should have a binary `wine` inside that build dire
 
 ## Setup
 
-First, execute `get.sh`. It will download files to the `dl/` folder and extract them into the `extracted/` folder.
+First, execute `get.sh`, and accept the licensing terms.
+If you have accepted, `get.sh` will download files to the `dl/` folder and extract them into the `extracted/` folder.
 
 Then put the following into your `~/.cargo/config`:
 

@@ -21,6 +21,7 @@ e07f0c9164c71924169a215eb87efcf8147ba948917e52a8c0a016cceeb912ef  dl/f9b24c82809
 211b7e166e08fa75d606e55471d58d231b8263885f1cb05b81a881ee292d888b  dl/f9ff50431335056fb4fbac05b8268204.cab
 540b8801e08ec39ba26a100c855898f455410cecbae4991afae7bb2b4df026c7  dl/lessmsi-v1.6.1.zip
 26fa5d98430b43c9e1b772d67a796e4c337fa0ddceed9572936d6e70eff14ace  dl/microsoft.visualcpp.crt.x64.store.vsix
+a7b8ae6c36b14ab17048d5ebea9d367610135463e02d87002dd01cf37faf7bf1  dl/microsoft.visualcpp.crt.x86.store.vsix
 b5d2cf115363b76a2458cea017d5c5ef43fb032643b352e37bfddd7408f06160  dl/microsoft.visualcpp.tools.hostx64.targetx64.vsix
 2bbfcaaef9a1bacb947d74431d25e292c9cd1caedfb48f4e21752de07e5b7471  dl/microsoft.visualcpp.tools.hostx64.targetx86.vsix
 2741f4233fc7e5a5fc7324533e58e63f32d0f432975d33a3affd0ce4aa8aca0c  dl/microsoft.visualcpp.tools.hostx86.targetx64.vsix
@@ -29,3 +30,4 @@ d79b9490270a177039bd70d362c67365329f8639752248e0e42e6d87b0b61429  dl/Universal C
 d6c3cf3645dcb5e052da02c4acb58efb396a85b16135d94640f567a5a4d0b02b  dl/Windows SDK Desktop Libs x64-x86_en-us.msi
 f918d7dc9615b9f76f00929ed152d417c178dd4621c8c530e72ed798da58cbe0  dl/Windows SDK Desktop Libs x86-x86_en-us.msi
 f4b0bf47b96ca5db9a081f270329b7eec39e13620bcdbb083777a6c146528740  dl/Windows SDK for Windows Store Apps Libs-x86_en-us.msi
+664ea487a6ee1876b7384c3f1f56680e9dda80e83212a4d760994755d3add9ce  dl/winsdksetup.exe
