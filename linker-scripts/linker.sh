@@ -17,7 +17,7 @@ sdk_libs=$extracted_dir/sdk/10/Lib/$sdk_version/um/$target/
 ucrt_libs=$extracted_dir/sdk/10/Lib/$sdk_version/ucrt/$target/
 crt_libs=$extracted_dir/sdk/VC/Tools/MSVC/$tools_version/lib/$target/
 
-echo "HI"
+echo "Running the linker wrapper."
 
 function make_wine_path() {
 	v=`realpath "$1"`
