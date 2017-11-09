@@ -11,17 +11,21 @@ Requirements:
 
 * 7z executable
 * GNU/Linux with GNU Bash installed. May also work on Mac or other BSD's, but I haven't tried.
-* Patched Wine 2.19 or later [that supports _memicmp_l](https://bugs.winehq.org/show_bug.cgi?id=43884). Compilation is explained below.
+* Bleeding edge Wine from git that supports _memicmp_l. Wine 2.21 (not released yet at the moment of writing this) should have support. Compilation is explained below.
 * 32 bit Wine with .Net installed -- can be a completely separate, second, Wine installation/toolchain
 
-The patched Wine is required to run the linker, while the .Net requirement is because of [lessmsi](http://lessmsi.activescott.com/).
+The bleeding edge Wine is required to run the linker, while the .Net requirement is because of [lessmsi](http://lessmsi.activescott.com/).
 
 Once [there is support by msitools](https://bugzilla.gnome.org/show_bug.cgi?id=789020) for the msi files involved,
 the requirement on the second toolchain will be replaced by a requirement on [msitools](https://wiki.gnome.org/msitools).
 
 Compilation of any C/C++ dependencies is not supported.
 
-## Compiling Wine with the _memicmp_l patch
+## Compiling Wine with _memicmp_l support
+
+Wine 2.20 doesn't support memicmp_l, but a patch with support has is available
+on the git master branch. It will most likely be included in the 2.21 release.
+So if you have 2.21 or later you can safely skip this compilation step!
 
 First, obtain the dev-dependencies of wine (assuming Ubuntu here, but other Debian like distros may work as well).
 
@@ -29,17 +33,15 @@ First, obtain the dev-dependencies of wine (assuming Ubuntu here, but other Debi
 sudo apt build-dep wine64-development
 ```
 
-Then, obtain the patched wine source code:
+Then, obtain the wine source code:
 
 ```bash
 git clone git://source.winehq.org/git/wine.git
 cd wine
-git checkout wine-2.20 -p patched_memicmp_l
-curl https://source.winehq.org/patches/data/138012 > memicmp_l_v1.patch
-git am memicmp_l_v1.patch
+git checkout d045a5ea29aada4182689cd80f4b57a694322b42 -b memicmp_l
 ```
 
-Now create a build directory, and execute the build!
+Now create a build directory, and execute the build:
 
 ```bash
 mkdir /path/to/wine-memicmp-l-build
@@ -71,10 +73,10 @@ Then go to your favourite Rust project and compile it e.g. with:
 cargo build --release --target x86_64-pc-windows-msvc
 ```
 
-As the patched wine executable might not be in your `$PATH`, you can also override it manually:
+As the wine executable might not be in your `$PATH`, you can also override it manually:
 
 ```
-WINE_EXEC=/path/to/patched/wine cargo build --release --target x86_64-pc-windows-msvc
+WINE_EXEC=/path/to/wine cargo build --release --target x86_64-pc-windows-msvc
 ```
 
 Same applies for `get.sh` as well -- if the Wine installation with 32 bit and .Net support is not in your `$PATH`,
