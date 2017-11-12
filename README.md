@@ -11,7 +11,7 @@ Requirements:
 
 * 7z executable
 * GNU/Linux with GNU Bash installed. May also work on Mac or other BSD's, but I haven't tried.
-* Bleeding edge Wine from git that supports _memicmp_l. Wine 2.21 (not released yet at the moment of writing this) should have support. Compilation is explained below.
+* Wine 2.21 or later. You really need 2.21: Wine 2.20 or older won't work. Compilation is explained below.
 * 32 bit Wine with .Net installed -- can be a completely separate, second, Wine installation/toolchain
 
 The bleeding edge Wine is required to run the linker, while the .Net requirement is because of [lessmsi](http://lessmsi.activescott.com/).
@@ -21,11 +21,11 @@ the requirement on the second toolchain will be replaced by a requirement on [ms
 
 Compilation of any C/C++ dependencies is not supported.
 
-## Compiling Wine with _memicmp_l support
+## Compiling Wine 2.21
 
-Wine 2.20 doesn't support memicmp_l, but a patch with support has is available
-on the git master branch. It will most likely be included in the 2.21 release.
-So if you have 2.21 or later you can safely skip this compilation step!
+If your distribution has already Wine 2.21 or any later version, you can skip this step and install Wine 2.21 via your distribution instead.
+However, if you are on no rolling-release distribution, Wine 2.21 may not have reached you yet.
+I'm explaining below how to compile it, so that you don't have to figure it out yourself.
 
 First, obtain the dev-dependencies of wine (assuming Ubuntu here, but other Debian like distros may work as well).
 
@@ -38,15 +38,15 @@ Then, obtain the wine source code:
 ```bash
 git clone git://source.winehq.org/git/wine.git
 cd wine
-git checkout d045a5ea29aada4182689cd80f4b57a694322b42 -b memicmp_l
+git checkout wine-2.21
 ```
 
 Now create a build directory, and execute the build:
 
 ```bash
-mkdir /path/to/wine-memicmp-l-build
-cd /path/to/wine-memicmp-l-build
-/path/to/wine/source/configure --prefix=/path/to/wine-memicmp-l-build --enable-win64
+mkdir /path/to/wine-2.21-build
+cd /path/to/wine-2.21-build
+/path/to/wine/source/configure --prefix=/path/to/wine-2.21-build --enable-win64
 make -j 8
 ```
 
