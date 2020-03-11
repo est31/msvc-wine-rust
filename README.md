@@ -12,7 +12,7 @@ Requirements:
 * 7z executable
 * GNU/Linux with GNU Bash installed. May also work on Mac or other BSD's, but I haven't tried.
 * Wine 2.21 or later. You really need 2.21: Wine 2.20 or older won't work. Compilation is explained below.
-* [msitools](https://wiki.gnome.org/msitools)
+* [msitools](https://wiki.gnome.org/msitools) version 0.98 or higher. Older versions don't support the SDK MSIs.
 
 The bleeding edge Wine is required to run the linker. Msitools is required to
 extract the SDK MSIs.
