@@ -17,10 +17,6 @@ function dl() {
 function download() {
 	mkdir -p dl
 
-	# Obtain lessmsi
-
-	dl_url https://github.com/activescott/lessmsi/releases/download/v1.6.1/lessmsi-v1.6.1.zip
-
 	# Obtain the tools
 
 	dl 11436965/d360453cfd1f34b6164afe24d1edc4b2/microsoft.visualcpp.tools.hostx86.targetx64.vsix
@@ -82,17 +78,13 @@ function extract_vsix() {
 # Extracts a given msi file
 function extract_msi() {
 	mkdir -p $1
-	$wine_exec extracted/lessmsi/lessmsi.exe x "$2" "$1\\"
-	cp -RT $1/SourceDir/* $1
-	rm -rf $1/SourceDir
+	msiextract --directory "$1/" "$2"
+	cp -RT $1/Program\ Files/* $1
+	rm -rf $1/Program\ Files
 }
 
 function extract() {
 	mkdir -p extracted
-
-	# Extract lessmsi
-	mkdir -p extracted/lessmsi
-	unzip dl/lessmsi-v1.6.1.zip -d extracted/lessmsi
 
 	# Extract the tools
 	extract_vsix extracted/tools dl/microsoft.visualcpp.tools.*.vsix

@@ -12,12 +12,10 @@ Requirements:
 * 7z executable
 * GNU/Linux with GNU Bash installed. May also work on Mac or other BSD's, but I haven't tried.
 * Wine 2.21 or later. You really need 2.21: Wine 2.20 or older won't work. Compilation is explained below.
-* 32 bit Wine with .Net installed -- can be a completely separate, second, Wine installation/toolchain
+* [msitools](https://wiki.gnome.org/msitools)
 
-The bleeding edge Wine is required to run the linker, while the .Net requirement is because of [lessmsi](http://lessmsi.activescott.com/).
-
-Once [there is support by msitools](https://bugzilla.gnome.org/show_bug.cgi?id=789020) for the msi files involved,
-the requirement on the second toolchain will be replaced by a requirement on [msitools](https://wiki.gnome.org/msitools).
+The bleeding edge Wine is required to run the linker. Msitools is required to
+extract the SDK MSIs.
 
 Compilation of any C/C++ dependencies is not supported.
 
