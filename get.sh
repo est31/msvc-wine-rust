@@ -45,7 +45,8 @@ function download() {
 	dl 100120735/59fd0bbd7af55837187bbf971d485bec/f9b24c8280986c0683fbceca5326d806.cab
 
 	# Obtain the CRT libs
-
+	dl 7b52e873-c823-471c-b1e9-ca1224f499fa/99c51d13947424b8bda524668316827157aa30ed87d67be04a41a68a1c64cba8/microsoft.visualc.14.11.crt.x86.desktop.vsix
+	dl 7b52e873-c823-471c-b1e9-ca1224f499fa/9c227b392eca05884a090216cc7ab600cce804ccdc0e01d0731c6bdc5a36c837/microsoft.visualc.14.11.crt.x64.desktop.vsix
 	dl 10933200/2185d21eb8245d7c79a5e74ade047c1a/microsoft.visualcpp.crt.x64.store.vsix
 	dl 10933295/e2c969895aaa4974d7d5819e9ee4cdc4/microsoft.visualcpp.crt.x86.store.vsix
 
@@ -91,7 +92,7 @@ function extract() {
 
 	# Extract the SDK
 	mkdir -p extracted/sdk
-	extract_vsix extracted/sdk dl/microsoft.visualcpp.crt.*.vsix
+	extract_vsix extracted/sdk dl/microsoft.visualc*.crt.*.vsix
 	extract_msi extracted/sdk "dl/Windows SDK Desktop Libs x64-x86_en-us.msi"
 	extract_msi extracted/sdk "dl/Windows SDK Desktop Libs x86-x86_en-us.msi"
 	extract_msi extracted/sdk "dl/Windows SDK for Windows Store Apps Libs-x86_en-us.msi"
