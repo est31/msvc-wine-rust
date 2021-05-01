@@ -117,10 +117,10 @@ function prb() {
 }
 
 function ensure_license() {
-	if [ ! -f licenses-accepted ]; then
-		# Prepare the SDK license
-		prepare_sdk_license
+	# Prepare the SDK license
+	prepare_sdk_license
 
+	if [ ! -f licenses-accepted ]; then
 		# Show the message
 		echo "###############################################################"
 		prb "Please read the following two license terms:"
