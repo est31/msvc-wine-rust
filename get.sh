@@ -74,6 +74,7 @@ function download() {
 	dl 100120735/59fd0bbd7af55837187bbf971d485bec/f9b24c8280986c0683fbceca5326d806.cab
 
 	# Obtain the CRT libs
+	
 	dl 7b52e873-c823-471c-b1e9-ca1224f499fa/99c51d13947424b8bda524668316827157aa30ed87d67be04a41a68a1c64cba8/microsoft.visualc.14.11.crt.x86.desktop.vsix
 	dl 7b52e873-c823-471c-b1e9-ca1224f499fa/9c227b392eca05884a090216cc7ab600cce804ccdc0e01d0731c6bdc5a36c837/microsoft.visualc.14.11.crt.x64.desktop.vsix
 	dl 10933200/2185d21eb8245d7c79a5e74ade047c1a/microsoft.visualcpp.crt.x64.store.vsix
