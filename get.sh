@@ -16,6 +16,35 @@ function dl() {
 
 function download() {
 	mkdir -p dl
+	mkdir -p extracted
+	
+	# Obtain the SDK installer. It contains the license
+
+	dl 100107594/d176ecb4240a304d1a2af2391e8965d4/winsdksetup.exe
+
+	# Extract the license
+
+	7z x -i\!u2 -so dl/winsdksetup.exe > extracted/sdk_license.rtf
+
+	# Verify that the licenses have been accepted
+
+	if [ ! -f licenses-accepted ]; then
+		echo "###############################################################"
+		prb "Please read the following two license terms:"
+		prb ""
+		prb "    * https://www.visualstudio.com/license-terms/mt644918/"
+		prb "    * extracted/sdk_license.rtf"
+		prb ""
+		prb "If you have read and want to accept them,"
+		prb "please execute the following command:"
+		prb ""
+		prb "  $0 licenses-accepted"
+		prb ""
+		prb "Thank you!"
+		echo "###############################################################"
+
+		exit 1
+	fi
 
 	# Obtain the tools
 
@@ -99,56 +128,13 @@ function extract() {
 	extract_msi extracted/sdk "dl/Universal CRT Headers Libraries and Sources-x86_en-us.msi"
 }
 
-function prepare_sdk_license() {
-	mkdir -p extracted
-	mkdir -p dl
-
-	# Obtain the SDK installer. It contains the license
-
-	dl 100107594/d176ecb4240a304d1a2af2391e8965d4/winsdksetup.exe
-
-	# Extract the license.
-
-	7z x -i\!u2 -so dl/winsdksetup.exe > extracted/sdk_license.rtf
-
-}
-
 function prb() {
 	printf "# %-59s #\n" "$1"
 }
 
-function ensure_license() {
-	# Prepare the SDK license
-	prepare_sdk_license
-
-	if [ ! -f licenses-accepted ]; then
-		# Show the message
-		echo "###############################################################"
-		prb "Please read the following two license terms:"
-		prb ""
-		prb "    * https://www.visualstudio.com/license-terms/mt644918/"
-		prb "    * extracted/sdk_license.rtf"
-		prb ""
-		prb "If you have read and want to accept them,"
-		prb "please execute the following command:"
-		prb ""
-		prb "  $0 licenses-accepted"
-		prb ""
-		prb "Thank you!"
-		echo "###############################################################"
-
-		exit 1
-	fi
-}
-
-case "$1" in
-"licenses-accepted")
-	touch licenses-accepted
-	;;
-*)
-	ensure_license
-	;;
-esac
+if [ "$1" == "licenses-accepted" ]; then
+    touch licenses-accepted
+fi
 
 case "$1" in
 "download")
