@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 extracted_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ../extracted && pwd )"
 
